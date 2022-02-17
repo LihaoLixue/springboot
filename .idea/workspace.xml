@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ceb6b67-56fb-4cd7-97e6-615757cb18ae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/log/log.log.2022-02-14" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log/log.log.2022-02-15" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/conf.properties" beforeDir="false" afterPath="$PROJECT_DIR$/config/conf.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/log.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/log.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/RuleTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/RuleTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/mapper/TomcatlogMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/mapper/TomcatlogMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/model/WarCron.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/model/WarCron.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/serviceimpl/ApplicationRunnerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/serviceimpl/ApplicationRunnerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/until/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/until/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/until/mysql/MySQLUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/until/mysql/MySQLUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/demo/until/scheduler/ExecuteSQLUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/demo/until/scheduler/ExecuteSQLUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/conf.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/conf.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -269,7 +257,7 @@
       <workItem from="1641946988082" duration="25346000" />
       <workItem from="1642138490800" duration="48471000" />
       <workItem from="1642725616379" duration="6927000" />
-      <workItem from="1644811282523" duration="30528000" />
+      <workItem from="1644811282523" duration="32084000" />
     </task>
     <servers />
   </component>
