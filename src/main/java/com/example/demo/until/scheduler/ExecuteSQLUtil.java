@@ -52,7 +52,7 @@ public class ExecuteSQLUtil {
             runner.setLogWriter(null);//设置是否输出日志
             Reader read = new FileReader(new File(sqlFileName));
             runner.runScript(read);
-//            runner.closeConnection();
+            runner.closeConnection();
 //            connection.close();
             read.close();
         } catch (Exception e) {
@@ -273,16 +273,16 @@ public class ExecuteSQLUtil {
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
             } finally {
-//                try {
-//                    if (!pst.isClosed()) {
-//                        pst.close();
-//                    }
-//                    if (!connection.isClosed()) {
-//                        connection.close();
-//                    }
-//                } catch (SQLException e) {
-//                    e.printStackTrace();
-//                }
+                try {
+                    if (!pst.isClosed()) {
+                        pst.close();
+                    }
+                    if (!connection.isClosed()) {
+                        connection.close();
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

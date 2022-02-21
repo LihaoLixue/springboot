@@ -57,11 +57,11 @@ public class MySQLUtil {
             dataSource.setAcquireIncrement(1);//设置增量
             dataSource.setMinPoolSize(2); //设置连接池最少连接数
             dataSource.setInitialPoolSize(2); //连接池初始化创建的连接数。默认值3
-            dataSource.setIdleConnectionTestPeriod(60);
+            dataSource.setIdleConnectionTestPeriod(60000);
             dataSource.setPreferredTestQuery("SELECT 1");
             dataSource.setTestConnectionOnCheckout(true);
             dataSource.setTestConnectionOnCheckin(false);
-            dataSource.setMaxIdleTime(300);
+            dataSource.setMaxIdleTime(30000);
 //        try {
 //
 //            // 获取数据库连接
