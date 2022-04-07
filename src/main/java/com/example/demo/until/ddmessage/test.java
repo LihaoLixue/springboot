@@ -8,6 +8,7 @@ import java.net.*;
 import java.text.SimpleDateFormat;
 import java.util.Properties;
 
+import static com.example.demo.until.ddmessage.AssignMessage.assignXX_only_dd;
 import static com.example.demo.until.ddmessage.AssignMessage.getAccessToken;
 
 /**
@@ -63,10 +64,13 @@ public class test {
 //        String dateStr = dateformat.format(System.currentTimeMillis());
 //        System.out.println(dateStr);
 //        assignXX_only_dd_1("002968","# 【南京证券-信用风险监控】\n 测试内容");
-//        String accessToken = getAccessToken();
+        String accessToken = getAccessToken();
 ////        System.out.println(accessToken);
 //        long l = System.currentTimeMillis();
 //        SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//        String ygh="002968,002813";
+//        assignXX_only_dd(accessToken, ygh, "测试"+ dateStr);
+
 //
 //        String dateStr = dateformat.format(System.currentTimeMillis());
 //        System.out.println(dateStr);

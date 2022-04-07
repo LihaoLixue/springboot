@@ -52,7 +52,7 @@ public class ExecuteSQLUtil {
             runner.setLogWriter(null);//设置是否输出日志
             Reader read = new FileReader(new File(sqlFileName));
             runner.runScript(read);
-            runner.closeConnection();
+//            runner.closeConnection();
 //            connection.close();
             read.close();
         } catch (Exception e) {
@@ -80,9 +80,9 @@ public class ExecuteSQLUtil {
             e.printStackTrace();
         } finally {
 //            try {
-////                if (!resultSet.isClosed()) {
-////                    resultSet.close();
-////                }
+//                if (!resultSet.isClosed()) {
+//                    resultSet.close();
+//                }
 //                if (!connection.isClosed()) {
 //                    connection.close();
 //                }
@@ -189,7 +189,7 @@ public class ExecuteSQLUtil {
                                 logger.debug("合同到期告警，yyb" + yybmc);
                                 String message = alertHtdqMessage(khxx);
                                 assignXX_only_dd(accessToken, ygh, yybmc + "," + message + dateStr);
-                                write_ff(khxx, ygh);
+//                                write_ff(khxx, ygh);
                             } else if ("3".equals(bz)) {
                                 String yybmc = resultSet.getString("yybmc");
                                 String khxx = resultSet.getString("khxx");
@@ -200,7 +200,7 @@ public class ExecuteSQLUtil {
                                 logger.debug("专项合同到期告警，yyb" + yybmc);
                                 String message = alertHtdqMessage(khxx);
                                 assignXX_only_dd(accessToken, ygh, yybmc + "," + message + dateStr);
-                                write_ff(khxx, ygh);
+//                                write_ff(khxx, ygh);
                             }
                         }
                     }
@@ -218,9 +218,6 @@ public class ExecuteSQLUtil {
 //            }
 //            if (!stmt.isClosed()) {
 //                stmt.close();
-//            }
-//            if (!connection.isClosed()) {
-//                connection.close();
 //            }
         }
         return resultSet;
