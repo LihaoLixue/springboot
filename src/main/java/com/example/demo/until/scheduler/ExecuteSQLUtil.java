@@ -40,7 +40,7 @@ public class ExecuteSQLUtil {
     @Value("${spring.datasource.password}")
     private String DB_PWD;
     MySQLUtil mySQLUtil = new MySQLUtil();
-//    ComboPooledDataSource dataSource = MySQLUtil.getConnection_1();
+    //    ComboPooledDataSource dataSource = MySQLUtil.getConnection_1();
     private static Connection connection;
 
     public void executeSql(String sqlFileName, Connection connection) throws ClassNotFoundException {
@@ -66,9 +66,6 @@ public class ExecuteSQLUtil {
         Connection connection = null;
         ResultSet resultSet = null;
         try {
-            String driverClassName = "com.mysql.cj.jdbc.Driver";
-            Class.forName(driverClassName);
-//            connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PWD);
             connection = mySQLUtil.getConnection();
             if ("1".equals(dx_if)) {
                 resultSet = execute(sqlFileName, connection, swithc_dx);
@@ -137,7 +134,6 @@ public class ExecuteSQLUtil {
      */
     public ResultSet execute(String sqlFile, Connection conn, String switch_dx) throws Exception {
         logger.debug("-----------进入短信调度区域----------------");
-//        Connection conn = DBCenter.getConnection();
         ResultSet resultSet = null;
         Statement stmt = null;
         long begin_time = System.currentTimeMillis();
@@ -189,6 +185,7 @@ public class ExecuteSQLUtil {
                                 logger.debug("合同到期告警，yyb" + yybmc);
                                 String message = alertHtdqMessage(khxx);
                                 assignXX_only_dd(accessToken, ygh, yybmc + "," + message + dateStr);
+                                //TODO 将发送信息写入表中
 //                                write_ff(khxx, ygh);
                             } else if ("3".equals(bz)) {
                                 String yybmc = resultSet.getString("yybmc");

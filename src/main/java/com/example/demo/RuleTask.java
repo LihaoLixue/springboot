@@ -64,17 +64,14 @@ public class RuleTask implements SchedulingConfigurer {
         }
         if (cronList != null) {
             for (WarCron warCron : cronList) {
-                logger.info("1111111111111111111111111111111");
                 String expression = warCron.getExpression();
                 String remark = warCron.getRemark();
                 //定时任务已存在且表达式未发生变化时跳过
                 if (scheduledFutures.containsKey(warCron.getTask_id()) && cronTasks.get(warCron.getTask_id()).getExpression().equals(expression) && expressionTasks.get(warCron.getTask_id()).equals(remark)) {
-                    logger.info("2222222222222222222222222222222222222222222222");
                     continue;
                 }
                 //如果执行时间发生了变化，则取消当前的定时任务
                 if (scheduledFutures.containsKey(warCron.getTask_id())) {
-                    logger.info("3333333333333333333333333333333333333333333333");
                     logger.debug("任务发生变化," + warCron.getTask_id());
                     scheduledFutures.get(warCron.getTask_id()).cancel(false);
                     scheduledFutures.remove(warCron.getTask_id());
@@ -86,17 +83,15 @@ public class RuleTask implements SchedulingConfigurer {
                             @Override
                             public void run() {
                                 Connection connection = null;
-                                System.out.println("------------------------测试-测试-测试----------------------------------------");
                                 String path = System.getProperty("user.dir");
                                 String outpath = path + "/tasks/";
-//                                connection = executeSQLUtil.executeSql(outpath + warCron.getRemark(),warCron.getDx());
                                 try {
                                     executeSQLUtil.executeSql_1(outpath + warCron.getRemark(), warCron.getDx(), warCron.getSwitch_dx());
                                 } catch (Exception e) {
                                     logger.error("sql文件执行出现问题，注意检查问题 " + e.getMessage());
                                     e.printStackTrace();
                                 }
-                                logger.debug("正在执行定时任务 " + warCron.getTask_id()+" 所执行任务名为 "+ warCron.getRemark());
+                                logger.debug("正在执行定时任务 " + warCron.getTask_id() + " 所执行任务名为 " + warCron.getRemark());
                             }
                         }, expression
                 );
@@ -104,7 +99,7 @@ public class RuleTask implements SchedulingConfigurer {
                 future.isDone();
                 cronTasks.put(warCron.getTask_id(), task);
                 expressionTasks.put(warCron.getTask_id(), remark);
-                cronTasks.keySet().stream().forEach(e ->logger.info(e.toString()));
+                cronTasks.keySet().stream().forEach(e -> logger.info(e.toString()));
                 scheduledFutures.put(warCron.getTask_id(), future);
             }
         }

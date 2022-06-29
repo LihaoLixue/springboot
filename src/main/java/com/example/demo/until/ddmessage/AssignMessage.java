@@ -31,7 +31,13 @@ import java.util.Properties;
 public class AssignMessage {
     static Logger logger = Logger.getLogger(AssignMessage.class);
 
-    //多人一次性发送
+
+    /**
+     * 方法名称：assignXX
+     * 功    能：多人一次性发送
+     * 参    数：user_id list，message
+     * 返 回 值：null
+     */
     public static void assignXX(List<String> sjhm, String message) {
         System.out.println("进入发送短信逻辑");
         String sjh = "null";
@@ -222,7 +228,6 @@ public class AssignMessage {
 
 
             //卡片测试
-
 //            msg.setActionCard(new OapiMessageCorpconversationAsyncsendV2Request.ActionCard());
 //            msg.getActionCard().setTitle("xxx123411111");
 //            msg.getActionCard().setMarkdown("### 测试123111");
@@ -254,6 +259,12 @@ public class AssignMessage {
         return rsp.getResult().getUserid();
     }
 
+    /**
+     * 方法名称：getAccessToken
+     * 功    能：由于token有效期为2个小时，获取钉钉token
+     * 参    数：null
+     * 返 回 值：token
+     */
     public static String getAccessToken() throws Exception {
         String AppKey = "dingjht5yto6txlhej7h";
         String AppSecret = "onn5bPZ95U_149s6ebyv4hWzyhnECFSPjZGAfI-6LiAJPUsMzCEuCtHdIT4iykpC";
@@ -316,6 +327,12 @@ public class AssignMessage {
     }
 
 
+    /**
+     * 方法名称：assignXX_only_dd
+     * 功    能：维持担保比例、合同到期告警
+     * 参    数：accessToken，user_id，cotent
+     * 返 回 值：null
+     */
     public static void assignXX_only_dd(String accessToken, String user_id, String cotent) {
 //        String accessToken = getAccessToken();
         Properties prop = System.getProperties();
@@ -355,18 +372,10 @@ public class AssignMessage {
             JSONObject jsonParam1 = new JSONObject();
             JSONObject jsonParam3 = new JSONObject();
 
-//        jsonParam1.put("title", "【南京证券-信用风险监控】");
-//        jsonParam1.put("single_title", "查看详情");
-//        jsonParam1.put("single_url", "");
-//        jsonParam1.put("markdown", cotent);
-//        jsonParam3.put("msgtype", "action_card");
-//        jsonParam3.put("action_card", jsonParam1);
             jsonParam1.put("title", "【南京证券-信用风险监控】");
             jsonParam1.put("text", cotent);
             jsonParam3.put("markdown", jsonParam1);
             jsonParam3.put("msgtype", "markdown");
-
-
             jsonParam.put("agent_id", 1390330698L);
             jsonParam.put("userid_list", user_id);
             jsonParam.put("msg", jsonParam3);
@@ -401,14 +410,21 @@ public class AssignMessage {
         }
     }
 
+    /**
+     * 任务下发时发送信息
+     * */
+
+
+    /**
+     * 方法名称：assignXX_only_dd_task
+     * 功    能：任务下发时发送信息
+     * 参    数：user_id，yyb
+     * 返 回 值：null
+     */
     public static StringBuffer assignXX_only_dd_task(String user_id, String yyb) {
         StringBuffer sb = new StringBuffer("");
         try {
             String string = null;
-//        JSONObject jsonObject = JSONObject.parseObject(json);
-//        JSONObject params = JSONObject.parseObject(jsonObject.getString("params"));
-//        String yybmc = params.getString("yybmc");
-//        String task_rece = params.getString("task_rece");
             String yybmc = yyb;
             String task_rece = user_id;
             String accessToken = null;
@@ -436,7 +452,6 @@ public class AssignMessage {
             // 设置文件类型:
             conn.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
             // 设置接收类型否则返回415错误
-            //conn.setRequestProperty("accept","*/*")此处为暴力方法设置接受所有类型，以此来防范返回415;
             conn.setRequestProperty("accept", "application/json");
             conn.connect();
 
@@ -450,13 +465,6 @@ public class AssignMessage {
             JSONObject jsonParam = new JSONObject();
             JSONObject jsonParam1 = new JSONObject();
             JSONObject jsonParam3 = new JSONObject();
-
-//        jsonParam1.put("title", "【南京证券-信用风险监控】");
-//        jsonParam1.put("single_title", "查看详情");
-//        jsonParam1.put("single_url", "");
-//        jsonParam1.put("markdown", cotent);
-//        jsonParam3.put("msgtype", "action_card");
-//        jsonParam3.put("action_card", jsonParam1);
             jsonParam1.put("title", "【南京证券-信用风险监控】");
             SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String dateStr = dateformat.format(System.currentTimeMillis());
@@ -475,7 +483,6 @@ public class AssignMessage {
             DataInputStream input;
 
             printout = new DataOutputStream(conn.getOutputStream());
-//        printout.writeBytes(URLEncoder.encode(str,"UTF-8"));
             printout.write(jsonStr.getBytes());
             printout.flush();
             printout.close();
@@ -489,21 +496,13 @@ public class AssignMessage {
                     sb.append(line + "\n");
                     System.out.println("返回结果: " + sb);
                 }
-//            System.out.println(sb);
                 br.close();
-                //System.out.println(""+sb.toString());
             } else {
                 System.out.println(conn.getResponseMessage());
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-//        InputStream inputStream = conn.getInputStream();
-//        //读取结果
-//        byte[] bytes = new byte[1024];
-//        while (inputStream.read(bytes) >= 0) {
-//            System.out.println(new String(bytes));
-//        }
         return sb;
     }
 
